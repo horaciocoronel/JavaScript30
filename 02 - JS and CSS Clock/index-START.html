@@ -71,8 +71,12 @@
   </style>
 
   <script>
+  function setDate() {
+    const now = new Date(); // Gets Date
+    const seconds = now.getSeconds(); // Gets current second from Date
+  }
 
-
+  setInterval(setDate, 1000);
   </script>
 </body>
 </html>
