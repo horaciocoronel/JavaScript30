@@ -71,9 +71,13 @@
   </style>
 
   <script>
+  const secondHand = document.querySelector('.second-hand'); // Selects hand
+
   function setDate() {
     const now = new Date(); // Gets Date
     const seconds = now.getSeconds(); // Gets current second from Date
+    const secondsDegrees = ((seconds / 60) * 360);
+    secondHand.style.transform = `rotate(${secondsDegrees}deg)`; // rotate the hand using the secondsDegrees value
   }
 
   setInterval(setDate, 1000);
