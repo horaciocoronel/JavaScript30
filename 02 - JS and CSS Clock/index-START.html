@@ -77,18 +77,43 @@
 
   function setDate() {
     const now = new Date(); // Gets Date
+
     const seconds = now.getSeconds(); // Gets current second from Date
     const minutes = now.getMinutes(); // Gets current minute from Date
     const hours = now.getHours(); // Gets current Hour from Date
+
     const secondsDegrees = ((seconds / 60) * 360) + 90;
     const minutesDegrees = ((minutes / 60) * 360) + 90;
     const hoursDegrees = ((hours / 12) * 360) + 90;
+
     secondHand.style.transform = `rotate(${secondsDegrees}deg)`; // rotate the hand using the secondsDegrees value
     minuteHand.style.transform = `rotate(${minutesDegrees}deg)`; // rotate the hand using the minutesDegrees value
     hourHand.style.transform = `rotate(${hoursDegrees}deg)`; // rotate the hand using the hoursDegrees value
+
+    // if statements to avoid seeing the hand going backwards when hits 60
+    if (seconds === 00) {
+      secondHand.style.transition = `all 0.0s`;
+      } else {
+      secondHand.style.transition = `all 0.3s`;
+    }
+
+    if (minutes === 00) {
+      minuteHand.style.transition = `all 0.0s`;
+      } else {
+      minuteHand.style.transition = `all 0.3s`;
+    }
+
+    if (hours === 12) {
+      hourHand.style.transition = `all 0.0s`;
+      } else {
+      hourHand.style.transition = `all 0.3s`;
+    }
+
+
   }
 
   setInterval(setDate, 1000);
+
   </script>
 </body>
 </html>
