@@ -62,6 +62,10 @@
       background:black;
       position: absolute;
       top:50%;
+      transform-origin: 100%; /* select right side of the element to rotate */
+      transform: rotate(90deg); /* set the hands to 90 degrees */
+      transition: all 0.3s;
+      transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1); /* affect the speed of the transition regarding the time */
     }
 
   </style>
